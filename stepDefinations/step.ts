@@ -1,31 +1,60 @@
 import { Given, When, Then } from "cucumber";
 import { calculator } from "../pageObjects/calculator";
 import { browser } from "protractor";
-
+import chai from "chai";
+import { angularHomePage } from "../pageObjects/angularHomePage";
+var expect = chai.expect;
+let calc = new calculator();
+let ah = new angularHomePage();
 /*
  * To run from Terminal 1) open seep def file 2) type tsc 3) npm run cucumbertest
  */
 
 
-let calc = new calculator(); //creating object   
-        Given('I will navigate to Calc site', async()=> {
-            
-            await browser.get('http://juliemr.github.io/protractor-demo/');
-          
-            });
-         
-         When('I add two Number {string} and {string}', async(string, string2)=>
-         {          
-                await calc.firstEditBox.sendKeys(string);
-                await calc.secondEditBox.sendKeys(string2);        
-                  
-            });
-        
-        Then('the output displayed should be {string}', async(string)=> {       
-                await calc.go.click();
-                await calc.getResult.getText().then(function (text) {
-                    console.log(text);
-               })
-            });
+Given('I will navigate to Calc Site', async () => {
+    // Write code here that turns the phrase above into concrete actions
+    await browser.get('http://juliemr.github.io/protractor-demo/');
 
- 
+});
+Given('I will navigate to {string} page', async (string) => {
+    // Write code here that turns the phrase above into concrete actions
+    if (string == "calc") {
+        await browser.get('http://juliemr.github.io/protractor-demo/');
+    }
+    else if (string == "AngularJs") {
+        await browser.get("https://angularjs.org/");
+    }
+
+});
+
+When('I clicked on header link', async () => {
+    // Write code here that turns the phrase above into concrete actions
+
+    await ah.angularLink.click();
+});
+When('you will navigate to angular page', async () => {
+    // Write code here that turns the phrase above into concrete actions
+    console.log("navigated to new page");
+});
+Then('you will enter {string} in search box', async (string) => {
+    // Write code here that turns the phrase above into concrete actions
+    await browser.sleep(3000);
+    await ah.search.sendKeys(string);
+});
+
+When('I add two numbers {string} and {string}', async (string, string2) => {
+    // Write code here that turns the phrase above into concrete actions
+
+    await calc.firstEditBox.sendKeys(string);
+    await calc.secondEditBox.sendKeys(string2);
+});
+
+
+Then('the output displayed should be {string}', async (string) => {
+    // Write code here that turns the phrase above into concrete actions
+    await calc.go.click();
+    await calc.getResult.getText().then(function (text) {
+
+        expect(text).to.equal(string);
+    })
+});
