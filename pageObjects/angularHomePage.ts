@@ -1,13 +1,12 @@
-import { ElementFinder,element,by } from "protractor";
+import { ElementFinder, element, by } from "protractor";
 
-export class angularHomePage{
-angularLink:ElementFinder;
-search:ElementFinder;
+export class AngularHomePage {
+    angularLink: ElementFinder;
+    search: ElementFinder;
 
-constructor()
-{
-    this.angularLink=element(by.linkText("angular.io"));
-    this.search=element(by.css("input[type='search']"));
-}
+    constructor() {
+        this.angularLink = element(by.linkText("angular.io"));
+        this.search = element(by.css("input[type='search']"));
+    }
 
 }

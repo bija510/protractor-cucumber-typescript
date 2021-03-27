@@ -1,13 +1,13 @@
 import { Given, When, Then } from "cucumber";
-import { calculator } from "../pageObjects/calculator";
+import { CalculatorPage } from "../pageObjects/CalculatorPage";
 import { browser } from "protractor";
 import chai from "chai";
-import { angularHomePage } from "../pageObjects/angularHomePage";
+import { AngularHomePage } from "../pageObjects/AngularHomePage";
 var expect = chai.expect;
-let calc = new calculator();
-let ah = new angularHomePage();
+let calc = new CalculatorPage();
+let ah = new AngularHomePage();
 /*
- * To run from Terminal 1) open seep def file 2) type tsc 3) npm run cucumbertest
+ * To run from Terminal 1) open step def file 2) type tsc 3) npm run cucumbertest
  */
 
 

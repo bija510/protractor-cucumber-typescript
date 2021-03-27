@@ -23,8 +23,8 @@ export let config: Config = {
     // They may include glob patterns.
     specs: ['../features/demo.feature'],
     cucumberOpts: {
-        // require step definitions
-       // tags:"@AngularTesting",
+        // require step definitions like [tags = group]
+        //tags:"@AngularTesting",
         format:'json:./cucumberreport.json',
        
         
