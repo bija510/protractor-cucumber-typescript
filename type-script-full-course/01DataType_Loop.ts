@@ -4,29 +4,30 @@
 3. var = let
 */
 
-for(let i=0;i<5;i++){
-    setTimeout(function() {console.log(i);}, 100 * i);
+for (let i = 0; i < 5; i++) {
+    setTimeout(function () { console.log(i); }, 100 * i);
 }
 
-const a = 4;             //this is constant like final cannot be declare again
-let c:string = "apple";  //means we can only reassign string type
-let b:number = 10;       //means we can only reassign number only
+const a = 4;              //this is constant like final cannot be declare again
+let someName = "marry";   //The variable’s type is inferred from the data type of the value. Here, the variable is of the type string
+let c: string = "apple";  //means we can only reassign string type
+let b: number = 10;       //means we can only reassign number only
 
-//if we use any then we can reuse that variable for number, double, or string 
-let e:any = "ball";
-e = "This is i'm reusing again"
-e = 10;
-e= 3.5;
-
-let flag:boolean =false;
+let flag: boolean = false;
 flag = true;
 
+//if we use any then we can reuse that variable for number, double, or string 
+let e: any = "ball";
+e = "This is i'm reusing again"
+e = 10;
+e = 3.5;
+
 //Array
-let numList:Array<number> = [1,2,3,4,5];
+let numList: Array<number> = [1, 2, 3, 4, 5];
 
-let strList:Array<string> =['ant', 'bat', 'cat', 'dog'];
+let strList: Array<string> = ['ant', 'bat', 'cat', 'dog'];
 
-let strList2:Array<any> =['ant', 4, 2.5, 'dog'];
+let strList2: Array<any> = ['ant', 4, 2.5, 'dog'];
 console.log(strList2[0]);
 console.log(strList2[1]);
 console.log(strList2[2]);
